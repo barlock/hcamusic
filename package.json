@@ -1,0 +1,29 @@
+{
+  "name": "hcamusic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf out && next build && next export && touch out/.nojekyll",
+    "start": "next",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^3.7.1",
+    "@material-ui/icons": "^3.0.1",
+    "@zeit/next-source-maps": "^0.0.3",
+    "classnames": "^2.2.6",
+    "modular-scale": "^5.1.0",
+    "next": "^7.0.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "react-jss": "^8.6.1",
+    "recompose": "^0.30.0"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "prettier": "^1.15.3"
+  }
+}
