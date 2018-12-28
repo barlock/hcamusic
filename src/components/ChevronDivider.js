@@ -4,20 +4,19 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
   root: {
-    position: 'relative',
-    top: theme.spacing.unit * -2,
-    zIndex: -1,
-    marginBottom: theme.spacing.unit * 10
+    position: 'absolute',
+    width: '100%',
+    zIndex: -1
   },
+  wrapper: {},
   chevron: {
     display: 'flex',
     position: 'relative',
     textAlign: 'center',
-    padding: theme.spacing.unit * 2,
     marginBottom: theme.spacing.unit * 2,
-    height: theme.spacing.unit * 10,
+    height: theme.spacing.unit * 4,
     width: '100%',
-    transform: 'translateY(-16px)',
+    transform: 'translateY(-100px)',
     '&::before': {
       content: 'no-open-quote',
       position: 'absolute',
@@ -25,8 +24,8 @@ const styles = theme => ({
       left: 0,
       height: '100%',
       width: '50%',
-      background: theme.palette.primary[50],
-      transform: 'skew(0deg, 8deg)'
+      background: theme.palette.secondary[50],
+      transform: 'skew(0deg, 6deg)'
     },
     '&::after': {
       content: 'no-open-quote',
@@ -35,24 +34,25 @@ const styles = theme => ({
       right: 0,
       height: '100%',
       width: '50%',
-      background: theme.palette.primary[50],
-      transform: 'skew(0deg, -8deg)'
+      background: theme.palette.secondary[50],
+      transform: 'skew(0deg, -6deg)'
     }
   },
   chevronSecondary: {
+    height: '100px',
     '&::before': {
-      background: theme.palette.secondary[50]
+      background: theme.palette.primary[50]
     },
     '&::after': {
-      background: theme.palette.secondary[50]
+      background: theme.palette.primary[50]
     }
   }
 });
 
 const ChevronDivider = ({ classes }) => (
   <div className={classes.root}>
-    <span className={classnames(classes.chevron, classes.chevronSecondary)} />
     <span className={classes.chevron} />
+    <span className={classnames(classes.chevron, classes.chevronSecondary)} />
   </div>
 );
 

@@ -13,7 +13,9 @@ const styles = theme => ({
   card: {
     height: '100%',
     maxWidth: 400,
-    margin: '0 auto'
+    margin: '0 auto',
+    boxShadow: '0 2px 4px 0 rgba(14,30,37,.12)',
+    borderRadius: 15
   },
   content: {
     marginTop: theme.spacing.unit * 2,

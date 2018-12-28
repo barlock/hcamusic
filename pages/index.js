@@ -1,5 +1,6 @@
 import React from 'react';
 import { compose } from 'recompose';
+import classnames from 'classnames';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button/Button';
@@ -8,6 +9,8 @@ import { withStyles, withTheme } from '@material-ui/core/styles';
 import Header from '../src/components/Header';
 import PriceCard from '../src/components/PriceCard';
 import ChevronDivider from '../src/components/ChevronDivider';
+import SingingValentineBanner from '../src/img/SingingValentineBanner';
+
 const styles = theme => ({
   '@global': {
     'html, body': {
@@ -21,13 +24,16 @@ const styles = theme => ({
     padding: theme.spacing.unit * 3
   },
   band: {
-    marginTop: theme.spacing.unit * 4,
-    marginBottom: theme.spacing.unit * 4,
-    marginRight: theme.spacing.unit * 2,
-    marginLeft: theme.spacing.unit * 2
+    padding: theme.spacing.unit * 2
+  },
+  bandHero: {
+    marginBottom: theme.spacing.unit * 6
+  },
+  bandPrimary: {
+    backgroundColor: theme.palette.primary[50]
   },
   section: {
-    marginBottom: theme.spacing.unit * 8
+    marginBottom: theme.spacing.unit * 6
   },
   loveText: {
     color: theme.palette.secondary.main
@@ -43,7 +49,7 @@ const styles = theme => ({
 const Index = ({ classes, theme: { palette } }) => (
   <div id="hca-music-root" className={classes.root}>
     <Header />
-    <div className={classes.band}>
+    <div className={classnames(classes.band, classes.bandHero)}>
       <Grid container alignItems="center" justify="space-evenly">
         <Grid item className={classes.gridSpacing} xs={12} md={6} lg={6} xl={4}>
           <Typography gutterBottom variant="h2">
@@ -77,12 +83,13 @@ const Index = ({ classes, theme: { palette } }) => (
           lg={5}
           xl={5}
         >
-          <img src="https://barlock.github.io/hcamusic/static/SingingValentineBanner.svg" />
+          <SingingValentineBanner />
+          {/*<img src="https://barlock.github.io/hcamusic/static/SingingValentineBanner.svg" />*/}
         </Grid>
       </Grid>
     </div>
     <ChevronDivider />
-    <div className={classes.band}>
+    <div className={classnames(classes.band, classes.bandPrimary)}>
       <Grid container justify="center" className={classes.section}>
         <Grid item xs={12}>
           <Typography gutterBottom variant="h3" align={'center'}>
@@ -160,6 +167,7 @@ const Index = ({ classes, theme: { palette } }) => (
         />
       </Grid>
     </div>
+    <ChevronDivider />
     {process.env.NODE_ENV === 'production' && (
       <>
         <script
