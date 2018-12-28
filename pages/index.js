@@ -8,9 +8,18 @@ import { withStyles, withTheme } from '@material-ui/core/styles';
 import Header from '../src/components/Header';
 import PriceCard from '../src/components/PriceCard';
 import ChevronDivider from '../src/components/ChevronDivider';
-import SingingValentineBanner from '../src/img/SingingValentineBanner';
-
 const styles = theme => ({
+  '@global': {
+    'html, body': {
+      font: 'initial'
+    }
+  },
+  root: {
+    textAlign: 'initial'
+  },
+  gridSpacing: {
+    padding: theme.spacing.unit * 3
+  },
   band: {
     marginTop: theme.spacing.unit * 4,
     marginBottom: theme.spacing.unit * 4,
@@ -32,11 +41,11 @@ const styles = theme => ({
 });
 
 const Index = ({ classes, theme: { palette } }) => (
-  <>
+  <div id="hca-music-root" className={classes.root}>
     <Header />
     <div className={classes.band}>
-      <Grid container alignItems="center" justify="space-evenly" spacing={40}>
-        <Grid item xs={12} md={6} lg={6} xl={4}>
+      <Grid container alignItems="center" justify="space-evenly">
+        <Grid item className={classes.gridSpacing} xs={12} md={6} lg={6} xl={4}>
           <Typography gutterBottom variant="h2">
             Singing <span className={classes.loveText}>Valentine's</span>
           </Typography>
@@ -50,6 +59,7 @@ const Index = ({ classes, theme: { palette } }) => (
             starting at $49
           </Typography>
           <Button
+            href="#main"
             className={classes.orderButton}
             variant="outlined"
             color="secondary"
@@ -58,8 +68,16 @@ const Index = ({ classes, theme: { palette } }) => (
             Order Now
           </Button>
         </Grid>
-        <Grid item xs={10} sm={8} md={6} lg={5} xl={5}>
-          <SingingValentineBanner />
+        <Grid
+          item
+          className={classes.gridSpacing}
+          xs={10}
+          sm={8}
+          md={6}
+          lg={5}
+          xl={5}
+        >
+          <img src="https://barlock.github.io/hcamusic/static/SingingValentineBanner.svg" />
         </Grid>
       </Grid>
     </div>
@@ -79,7 +97,7 @@ const Index = ({ classes, theme: { palette } }) => (
           </Typography>
         </Grid>
       </Grid>
-      <Grid container spacing={40} justify="center">
+      <Grid container justify="center">
         <PriceCard
           title="Phone/Skype"
           price={29}
@@ -129,7 +147,7 @@ const Index = ({ classes, theme: { palette } }) => (
         <PriceCard
           title="The Proposal"
           price={249}
-          description="For those looking for something really special"
+          description="For those looking for something really special. Contact us for details."
           color={palette.secondary[800]}
           features={[
             'Two Love Songs',
@@ -142,7 +160,29 @@ const Index = ({ classes, theme: { palette } }) => (
         />
       </Grid>
     </div>
-  </>
+    {process.env.NODE_ENV === 'production' && (
+      <>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-131350510-2"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+document.getElementById('page-container').insertBefore(document.getElementById('hca-music-root'), document.getElementById('page-container').firstChild);
+document.getElementById('order_form_heading_show_block').style = '';
+<!-- Global site tag (gtag.js) - Google Analytics -->
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'UA-131350510-2');
+`
+          }}
+        />
+      </>
+    )}
+  </div>
 );
 
 export default compose(

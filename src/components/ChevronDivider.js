@@ -19,7 +19,7 @@ const styles = theme => ({
     width: '100%',
     transform: 'translateY(-16px)',
     '&::before': {
-      content: '""',
+      content: 'no-open-quote',
       position: 'absolute',
       top: 0,
       left: 0,
@@ -29,7 +29,7 @@ const styles = theme => ({
       transform: 'skew(0deg, 8deg)'
     },
     '&::after': {
-      content: '""',
+      content: 'no-open-quote',
       position: 'absolute',
       top: 0,
       right: 0,

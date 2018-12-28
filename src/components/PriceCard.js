@@ -8,11 +8,7 @@ import HeartIcon from '@material-ui/icons/Favorite';
 
 const styles = theme => ({
   root: {
-    // display: 'flex',
-    // flex: 1,
-    // textAlign: 'center',
-    // alignItems: 'center',
-    // justifyContent: 'center'
+    padding: theme.spacing.unit * 3
   },
   card: {
     height: '100%',
@@ -24,9 +20,6 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 2,
     marginLeft: theme.spacing.unit * 1,
     marginRight: theme.spacing.unit * 1
-  },
-  title: {
-    // color: theme.palette.primary[900]
   },
   description: {
     color: theme.palette.text.secondary,
@@ -59,12 +52,7 @@ const PriceCard = ({
   <Grid item xs={10} sm={8} md={6} lg={4} xl={2} className={classes.root}>
     <Card className={classes.card}>
       <CardContent className={classes.content}>
-        <Typography
-          gutterBottom
-          className={classes.title}
-          variant="subtitle1"
-          {...setColor(color)}
-        >
+        <Typography gutterBottom variant="subtitle1" {...setColor(color)}>
           {title}
         </Typography>
         <Typography gutterBottom variant="h4">
@@ -78,7 +66,7 @@ const PriceCard = ({
           {description}
         </Typography>
         {features.map(feature => (
-          <span className={classes.feature}>
+          <span className={classes.feature} key={feature}>
             <HeartIcon className={classes.featureIcon} {...setColor(color)} />
             <Typography variant="body1">{feature}</Typography>
           </span>

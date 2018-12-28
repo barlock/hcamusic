@@ -27,14 +27,13 @@ export const theme = {
     fontFamily: [
       '-apple-system',
       'BlinkMacSystemFont',
-      '"Segoe UI"',
       'Roboto',
-      '"Helvetica Neue"',
+      'Helvetica Neue',
       'Arial',
       'sans-serif',
-      '"Apple Color Emoji"',
-      '"Segoe UI Emoji"',
-      '"Segoe UI Symbol"'
+      'Apple Color Emoji',
+      'Segoe UI Emoji',
+      'Segoe UI Symbol'
     ].join(','),
     h1: {
       fontSize: `${ms(7)}em`,

@@ -34,7 +34,7 @@ const Header = ({ classes, theme }) => (
         </a>
       </Grid>
       <Grid item>
-        <Button variant="outlined" color="secondary">
+        <Button href="#main" variant="outlined" color="secondary">
           <HeartIcon className={classes.icon} />
           Order Now
         </Button>

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf out && next build && next export && touch out/.nojekyll",
+    "build": "rm -rf out && NODE_ENV=production next build && next export && touch out/.nojekyll",
     "start": "next",
     "test": "yarn build"
   },
@@ -23,7 +23,8 @@
     "recompose": "^0.30.0"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1",
+    "axios": "^0.18.0",
+    "fs-extra": "^7.0.1",
     "prettier": "^1.15.3"
   }
 }

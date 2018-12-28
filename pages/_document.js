@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Main, NextScript } from 'next/document';
 import flush from 'styled-jsx/server';
 
 class MyDocument extends Document {
@@ -44,40 +44,21 @@ class MyDocument extends Document {
 
     return {
       ...page,
-      pageContext,
-      // Styles fragment is rendered after the app and page rendering finish.
-      styles: (
-        <>
-          <style
-            id="jss-server-side"
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: pageContext ? pageContext.sheetsRegistry.toString() : ''
-            }}
-          />
-          {flush() || null}
-        </>
-      )
+      pageContext
     };
   }
 
   render() {
+    const { pageContext } = this.props;
     return (
-      <html lang="en" dir="ltr">
-        <Head>
-          <meta charSet="utf-8" />
-          {/* Use minimum-scale=1 to enable GPU rasterization */}
-          <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no"
-          />
-          <meta name="theme-color" content="#ffffff" />
-        </Head>
-        <body>
-          <Main />
-          {/*<NextScript />*/}
-        </body>
-      </html>
+      <div>
+        <style id="jss-server-side">
+          {pageContext ? pageContext.sheetsRegistry.toString() : null}
+          {flush() || null}}
+        </style>
+        <Main />
+        {process.env.NODE_ENV !== 'production' ? <NextScript /> : null}
+      </div>
     );
   }
 }
