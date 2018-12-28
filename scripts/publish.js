@@ -19,6 +19,7 @@ const querystring = require('querystring');
     data: querystring.stringify({
       order_form_heading: fileData,
       admin: '1',
+      ShowTopImage: 'no',
       action: 'saveFormChanges',
       ChorusID: '39'
     })

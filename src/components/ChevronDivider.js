@@ -2,13 +2,19 @@ import React from 'react';
 import classnames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 
+const height = 100;
+
 const styles = theme => ({
   root: {
-    position: 'absolute',
+    position: 'relative',
     width: '100%',
+    height,
     zIndex: -1
   },
-  wrapper: {},
+  wrapper: {
+    position: 'absolute',
+    width: '100%'
+  },
   chevron: {
     display: 'flex',
     position: 'relative',
@@ -16,7 +22,6 @@ const styles = theme => ({
     marginBottom: theme.spacing.unit * 2,
     height: theme.spacing.unit * 4,
     width: '100%',
-    transform: 'translateY(-100px)',
     '&::before': {
       content: 'no-open-quote',
       position: 'absolute',
@@ -39,20 +44,29 @@ const styles = theme => ({
     }
   },
   chevronSecondary: {
-    height: '100px',
+    height,
     '&::before': {
       background: theme.palette.primary[50]
     },
     '&::after': {
       background: theme.palette.primary[50]
     }
+  },
+  chevronBottom: {
+    transform: `translateY(${(height / 2) * -1}px)`
   }
 });
 
-const ChevronDivider = ({ classes }) => (
+const ChevronDivider = ({ classes, bottom }) => (
   <div className={classes.root}>
-    <span className={classes.chevron} />
-    <span className={classnames(classes.chevron, classes.chevronSecondary)} />
+    <div className={classes.wrapper}>
+      {!bottom && <span className={classes.chevron} />}
+      <span
+        className={classnames(classes.chevron, classes.chevronSecondary, {
+          [classes.chevronBottom]: bottom
+        })}
+      />
+    </div>
   </div>
 );
 

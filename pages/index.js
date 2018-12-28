@@ -83,8 +83,8 @@ const Index = ({ classes, theme: { palette } }) => (
           lg={5}
           xl={5}
         >
-          <SingingValentineBanner />
-          {/*<img src="https://barlock.github.io/hcamusic/static/SingingValentineBanner.svg" />*/}
+          {/*<SingingValentineBanner />*/}
+          <img src="https://barlock.github.io/hcamusic/static/SingingValentineBanner.svg" />
         </Grid>
       </Grid>
     </div>
@@ -167,7 +167,7 @@ const Index = ({ classes, theme: { palette } }) => (
         />
       </Grid>
     </div>
-    <ChevronDivider />
+    <ChevronDivider bottom />
     {process.env.NODE_ENV === 'production' && (
       <>
         <script
