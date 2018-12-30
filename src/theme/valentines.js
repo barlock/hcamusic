@@ -13,7 +13,10 @@ export const theme = {
   ...defaultTheme,
   palette: {
     primary: pink,
-    secondary: red,
+    secondary: {
+      ...red,
+      main: red[700]
+    },
     background: {
       default: '#fefdfe'
     }

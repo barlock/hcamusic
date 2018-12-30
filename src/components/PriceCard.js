@@ -48,6 +48,7 @@ const PriceCard = ({
   price,
   title,
   description,
+  children,
   features = [],
   color = 'black'
 }) => (
@@ -65,6 +66,7 @@ const PriceCard = ({
           className={classes.description}
           variant="body1"
         >
+          {children}
           {description}
         </Typography>
         {features.map(feature => (

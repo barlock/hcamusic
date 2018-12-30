@@ -6,6 +6,7 @@ import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button/Button';
 import HeartIcon from '@material-ui/icons/Favorite';
 import { withStyles, withTheme } from '@material-ui/core/styles';
+import Anchor from '../src/components/Anchor';
 import Header from '../src/components/Header';
 import PriceCard from '../src/components/PriceCard';
 import ChevronDivider from '../src/components/ChevronDivider';
@@ -42,7 +43,11 @@ const styles = theme => ({
     marginRight: theme.spacing.unit
   },
   orderButton: {
-    marginTop: theme.spacing.unit * 4
+    marginTop: theme.spacing.unit * 4,
+    marginBottom: theme.spacing.unit * 1
+  },
+  img: {
+    width: '100%'
   }
 });
 
@@ -57,19 +62,25 @@ const Index = ({ classes, theme: { palette } }) => (
           </Typography>
 
           <Typography paragraph variant="body1">
-            Heart of Carolina A Capella is delivering songs to that special
-            someone.
+            <Anchor href="https://hcamusic.org">
+              Heart of Carolina A Capella
+            </Anchor>{' '}
+            is delivering the gift of music to your special someone.
           </Typography>
           <Typography paragraph variant="body1">
-            Two love songs, a rose, a card, and a box of chocolates, deliveries
-            starting at $49
+            A quartet will surprise your loved one with a rose, a card, and a
+            box of chocolates and two love songs in four part a cappella
+            harmony. All by a sharply-dressed quartet.
           </Typography>
-          <Button
-            href="#main"
-            className={classes.orderButton}
-            variant="outlined"
-            color="secondary"
-          >
+          <Typography paragraph variant="body1">
+            You specify the time and place, we'll travel all over the Triangle
+            for this special day! See our free-delivery{' '}
+            <Anchor href="#coverage-map">coverage map.</Anchor>
+          </Typography>
+          <Typography className={classes.orderButton} variant="body1">
+            Deliveries starting at just $49.
+          </Typography>
+          <Button href="#main" variant="outlined" color="secondary">
             <HeartIcon className={classes.icon} />
             Order Now
           </Button>
@@ -90,17 +101,17 @@ const Index = ({ classes, theme: { palette } }) => (
     </div>
     <ChevronDivider />
     <div className={classnames(classes.band, classes.bandPrimary)}>
-      <Grid container justify="center" className={classes.section}>
+      <Grid container justify="center">
         <Grid item xs={12}>
-          <Typography gutterBottom variant="h3" align={'center'}>
-            Delivering to the Triangle
+          <Typography id="pricing" gutterBottom variant="h3" align={'center'}>
+            Prices for everybody
           </Typography>
         </Grid>
 
-        <Grid item xs={8} md={6}>
-          <Typography variant="body1" align={'center'}>
-            Valentines will be delivered from February 14th-16th within a 25
-            mile radius of Durham NC.
+        <Grid item xs={8} md={5}>
+          <Typography gutterBottom variant="body1" align={'center'}>
+            Send a quartet to sing songs to that special someone and brighten
+            their Valentine's.
           </Typography>
         </Grid>
       </Grid>
@@ -154,20 +165,63 @@ const Index = ({ classes, theme: { palette } }) => (
         <PriceCard
           title="The Proposal"
           price={249}
-          description="For those looking for something really special. Contact us for details."
           color={palette.secondary[800]}
           features={[
             'Two Love Songs',
-            'A Dozen Rose',
+            'A Dozen Roses',
             'A Personalized Card',
             'A Small Box of Chocolates',
             'Prompt Delivery',
             'Detailed Requests'
           ]}
-        />
+        >
+          For those looking for something really special.{' '}
+          <Anchor href="mailto:ValentinesHCA@gmail.com">Contact us</Anchor> for
+          details.
+        </PriceCard>
+        <Grid item xs={8} md={5}>
+          <Typography variant="body1" align={'center'}>
+            If you have any questions or concerns, email{' '}
+            <Anchor href="mailto:ValentinesHCA@gmail.com">
+              ValentinesHCA@gmail.com
+            </Anchor>
+            .
+          </Typography>
+        </Grid>
       </Grid>
     </div>
     <ChevronDivider bottom />
+
+    <div className={classnames(classes.band)}>
+      <Grid container justify="center" className={classes.section}>
+        <Grid item xs={12}>
+          <Typography
+            id="coverage-map"
+            gutterBottom
+            variant="h3"
+            align={'center'}
+          >
+            Delivering to the Triangle
+          </Typography>
+        </Grid>
+
+        <Grid item xs={8} md={6}>
+          <Typography paragraph variant="body1" align={'center'}>
+            Valentines will be delivered from February 14th-16th within a 25
+            mile radius of Durham NC.
+          </Typography>
+          <a
+            href="https://www.google.com/maps/d/viewer?mid=1CQwRBdvHtU5nGoKTOX2Rl20IH-5n_IBB&usp=sharing"
+            target="_blank"
+          >
+            <img
+              className={classes.img}
+              src="https://barlock.github.io/hcamusic/static/delivery-area.png"
+            />
+          </a>
+        </Grid>
+      </Grid>
+    </div>
     {process.env.NODE_ENV === 'production' && (
       <>
         <script
