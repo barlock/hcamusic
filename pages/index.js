@@ -58,19 +58,19 @@ const Index = ({ classes, theme: { palette } }) => (
       <Grid container alignItems="center" justify="space-evenly">
         <Grid item className={classes.gridSpacing} xs={12} md={6} lg={6} xl={4}>
           <Typography gutterBottom variant="h2">
-            Singing <span className={classes.loveText}>Valentine's</span>
+            Singing <span className={classes.loveText}>Valentines</span>
           </Typography>
 
           <Typography paragraph variant="body1">
             <Anchor href="https://hcamusic.org">
-              Heart of Carolina A Capella
+              Heart of Carolina A Cappella
             </Anchor>{' '}
             is delivering the gift of music to your special someone.
           </Typography>
           <Typography paragraph variant="body1">
-            A quartet will surprise your loved one with a rose, a card, and a
-            box of chocolates and two love songs in four part a cappella
-            harmony. All by a sharply-dressed quartet.
+            A sharply-dressed quartet will surprise your loved one with a rose,
+            a card, and a box of chocolates and two love songs in four part a
+            cappella harmony.
           </Typography>
           <Typography paragraph variant="body1">
             You specify the time and place, we'll travel all over the Triangle
@@ -111,7 +111,7 @@ const Index = ({ classes, theme: { palette } }) => (
         <Grid item xs={8} md={5}>
           <Typography gutterBottom variant="body1" align={'center'}>
             Send a quartet to sing songs to that special someone and brighten
-            their Valentine's.
+            their Valentine's Day.
           </Typography>
         </Grid>
       </Grid>
@@ -163,23 +163,22 @@ const Index = ({ classes, theme: { palette } }) => (
           ]}
         />
         <PriceCard
-          title="The Proposal"
-          price={249}
+          title="Serenade Your Staff"
+          price={100}
           color={palette.secondary[800]}
           features={[
-            'Two Love Songs',
-            'A Dozen Roses',
+            'Two Love Songs, up to three teams',
+            'Three Roses',
             'A Personalized Card',
-            'A Small Box of Chocolates',
             'Prompt Delivery',
             'Detailed Requests'
           ]}
         >
-          For those looking for something really special.{' '}
+          Show your team how much you care.{' '}
           <Anchor href="mailto:ValentinesHCA@gmail.com">Contact us</Anchor> for
           details.
         </PriceCard>
-        <Grid item xs={8} md={5}>
+        <Grid item xs={8} md={7}>
           <Typography variant="body1" align={'center'}>
             If you have any questions or concerns, email{' '}
             <Anchor href="mailto:ValentinesHCA@gmail.com">
@@ -193,7 +192,12 @@ const Index = ({ classes, theme: { palette } }) => (
     <ChevronDivider bottom />
 
     <div className={classnames(classes.band)}>
-      <Grid container justify="center" className={classes.section}>
+      <Grid
+        container
+        justify="space-around"
+        className={classes.section}
+        spacing={40}
+      >
         <Grid item xs={12}>
           <Typography
             id="coverage-map"
@@ -205,10 +209,9 @@ const Index = ({ classes, theme: { palette } }) => (
           </Typography>
         </Grid>
 
-        <Grid item xs={8} md={6}>
+        <Grid item xs={8} md={5}>
           <Typography paragraph variant="body1" align={'center'}>
-            Valentines will be delivered from February 14th-16th within a 25
-            mile radius of Durham NC.
+            Valentines will be delivered within a 25 mile radius of Durham NC.
           </Typography>
           <a
             href="https://www.google.com/maps/d/viewer?mid=1CQwRBdvHtU5nGoKTOX2Rl20IH-5n_IBB&usp=sharing"
@@ -219,6 +222,26 @@ const Index = ({ classes, theme: { palette } }) => (
               src="https://barlock.github.io/hcamusic/static/delivery-area.png"
             />
           </a>
+        </Grid>
+        <Grid item xs={8} md={5}>
+          <Typography gutterBottom variant="h5">
+            Delivery Times
+          </Typography>
+          <Typography paragraph variant="subtitle1">
+            Be sure to select the correct time in the order form.
+          </Typography>
+          <Typography gutterBottom variant="body1">
+            Wed, Feb 13: 6pm - 9pm
+          </Typography>
+          <Typography gutterBottom variant="body1">
+            Thu, Feb 14: 9am - 9pm
+          </Typography>
+          <Typography gutterBottom variant="body1">
+            Fri, Feb 15: 6pm - 9pm
+          </Typography>
+          <Typography gutterBottom variant="body1">
+            Sat, Feb 16: 9am - 9pm
+          </Typography>
         </Grid>
       </Grid>
     </div>

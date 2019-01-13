@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf out && NODE_ENV=production next build && next export && touch out/.nojekyll",
+    "deploy": "node scripts/publish.js",
     "start": "next",
     "test": "yarn build"
   },
@@ -24,6 +25,7 @@
   },
   "devDependencies": {
     "axios": "^0.18.0",
+    "dotenv": "^6.2.0",
     "fs-extra": "^7.0.1",
     "prettier": "^1.15.3"
   }

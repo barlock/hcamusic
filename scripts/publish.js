@@ -4,6 +4,8 @@ const axios = require('axios');
 const path = require('path');
 const querystring = require('querystring');
 
+require('dotenv').config();
+
 (async () => {
   const fileData = (await fs.readFile(
     path.join(__dirname, '../out/index.html'),
