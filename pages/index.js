@@ -150,7 +150,7 @@ const Index = ({ classes, theme: { palette } }) => (
           ]}
         />
         <PriceCard
-          title="30 Min Delivery Window"
+          title="1 Hour Delivery Window"
           price={79}
           description="Personal Delivery to a home or office"
           color={palette.secondary[600]}
@@ -159,7 +159,7 @@ const Index = ({ classes, theme: { palette } }) => (
             'A Rose',
             'A Personalized Card',
             'A Small Box of Chocolates',
-            '30 Min Delivery Window'
+            '1 Hour Delivery Window'
           ]}
         />
         <PriceCard
@@ -231,16 +231,13 @@ const Index = ({ classes, theme: { palette } }) => (
             Be sure to select the correct time in the order form.
           </Typography>
           <Typography gutterBottom variant="body1">
-            Wed, Feb 13: 6pm - 9pm
+            Thu, Feb 13: 9am - 9pm
           </Typography>
           <Typography gutterBottom variant="body1">
-            Thu, Feb 14: 9am - 9pm
+            Fri, Feb 14: 9am - 9pm
           </Typography>
           <Typography gutterBottom variant="body1">
-            Fri, Feb 15: 6pm - 9pm
-          </Typography>
-          <Typography gutterBottom variant="body1">
-            Sat, Feb 16: 9am - 9pm
+            Sat, Feb 15: 9am - 9pm
           </Typography>
         </Grid>
       </Grid>

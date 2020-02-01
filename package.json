@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf out && NODE_ENV=production next build && next export && touch out/.nojekyll",
-    "deploy": "node scripts/publish.js",
+    "push": "node scripts/publish.js",
+    "deploy": "yarn build && yarn push",
     "start": "next",
     "test": "yarn build"
   },
