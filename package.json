@@ -18,7 +18,7 @@
     "@zeit/next-source-maps": "^0.0.3",
     "classnames": "^2.2.6",
     "modular-scale": "^5.1.0",
-    "next": "^7.0.2",
+    "next": "^9.3.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-jss": "^8.6.1",
